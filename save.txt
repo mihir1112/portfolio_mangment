@@ -1,0 +1,247 @@
+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
+
+
+ <div class="tab-content">
+          <div class="tab-pane fade active show" id="past" role="tabpanel" aria-labelledby="past-tab">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th rowspan="2"><strong>Year</strong></th>
+                    <th rowspan="2"><strong>Market</strong></th>
+                    <th rowspan="2"> <strong>Mgmt Fee</strong></th>
+                    <th colspan="2" style="text-align:center"><strong>P&L</strong></th>
+                    <th colspan="2"  style="text-align:center"><strong>Capital</strong></th>
+                  </tr>
+                  <tr>
+                    <th><strong>%</strong></th>
+                    <th><strong> No.</strong> </th>
+                    <th><strong>%</strong></th>
+                    <th><strong> No.</strong> </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td rowspan="4" class="badge-success text-center">2021</td>
+                    <td>Tadawul</td>
+                    <td>100</td>
+                    <td class="text-success">8</td>
+                    <td class="text-success">38,629</td>
+                    <td>45.48</td>
+                    <td>5,13,245</td>
+
+                  </tr>
+                  <tr>
+                    <td>NYSE/NASDAQ</td>
+                    <td>200</td>
+                    <td class="text-danger">-8</td>
+                    <td class="text-danger">-10,806</td>
+                    <td>43.98</td>
+                    <td>1,32,342  </td>
+                  </tr>
+                  <tr>
+                    <td>CRYPTO</td>
+                    <td>150</td>
+                    <td class="text-danger">-16</td>
+                    <td class="text-danger">-2,220</td>
+                    <td>4.68</td>
+                    <td>14,093  </td>
+                  </tr>
+
+                  <tr class="text-white bg-black">
+                    <td><strong>Total</strong></td>
+                    <td><strong>450</strong></td>
+                    <td class="text-danger"><strong>-0.90</strong></td>
+                    <td class="text-danger"><strong>-10,220</strong></td>
+                    <td><strong>100</strong></td>
+                    <td><strong>23456745</strong> </td>
+                  </tr>
+
+                  <tr>
+                    <td rowspan="4" class="badge-info  text-center">2020</td>
+                    <td>Tadawul</td>
+                    <td>234</td>
+                    <td class="text-success">8</td>
+                    <td class="text-success">38,629</td>
+                    <td>45.48</td>
+                    <td>5,13,245</td>
+
+                  </tr>
+                  <tr>
+                    <td>NYSE/NASDAQ</td>
+                    <td>234</td>
+                    <td class="text-danger">-8</td>
+                    <td class="text-danger">-10,806</td>
+                    <td>43.98</td>
+                    <td>1,32,342  </td>
+                  </tr>
+                  <tr>
+                    <td>CRYPTO</td>
+                    <td>234</td>
+                    <td class="text-danger">-16</td>
+                    <td class="text-danger">-2,220</td>
+                    <td>4.68</td>
+                    <td>14,093  </td>
+                  </tr>
+                  <tr class="text-white bg-black">
+                    <td><strong>Total</strong></td>
+                    <td><strong>450</strong></td>
+                    <td class="text-danger"><strong>-0.90</strong></td>
+                    <td class="text-danger"><strong>-10,220</strong></td>
+                    <td><strong>100</strong></td>
+                    <td><strong>23456745</strong> </td>
+                  </tr>
+
+                  <tr>
+                    <td rowspan="4" class="bg-primary text-white text-center">2019</td>
+                    <td>Tadawul</td>
+                    <td>234</td>
+                    <td class="text-success">8</td>
+                    <td class="text-success">38,629</td>
+                    <td>45.48</td>
+                    <td>5,13,245</td>
+
+                  </tr>
+                  <tr>
+                    <td>NYSE/NASDAQ</td>
+                    <td>234</td>
+                    <td class="text-danger">-8</td>
+                    <td class="text-danger">-10,806</td>
+                    <td>43.98</td>
+                    <td>1,32,342  </td>
+                  </tr>
+                  <tr>
+                    <td>CRYPTO</td>
+                    <td>234</td>
+                    <td class="text-danger">-16</td>
+                    <td class="text-danger">-2,220</td>
+                    <td>4.68</td>
+                    <td>14,093  </td>
+                  </tr>
+                  <tr class="text-white bg-black">
+                    <td><strong>Total</strong></td>
+                    <td><strong>450</strong></td>
+                    <td class="text-danger"><strong>-0.90</strong></td>
+                    <td class="text-danger"><strong>-10,220</strong></td>
+                    <td><strong>100</strong></td>
+                    <td><strong>23456745</strong> </td>
+                  </tr>
+                  </tbody>
+                </table>
+
+
+
+            </div>
+          </div>
+          <div class="tab-pane fade" id="investment" role="tabpanel" aria-labelledby="investment-tab">
+
+            <div class="table-responsive">
+              <table class="table table-bordered" id= "clientinv">
+                <thead>
+                  <tr>
+                    <th><strong>Date</strong></th>
+                    <th><strong>Status</strong></th>
+                    <th> <strong>Amount</strong></th>
+                    <th><strong>Action</strong></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>20-10-2021</td>
+                    <td  class="text-success">Add</td>
+                    <td class="text-success">4567</td>
+                    <td><button type="button" class="btn btn-primary p-2"data-bs-toggle="modal" data-bs-target="#add">
+                      <span class="mdi mdi-eye icon-item"></span>
+                    </button></td>
+                  </tr>
+                  <tr>
+                    <td>20-10-2021</td>
+                    <td  class="text-danger">Withdraw</td>
+                    <td class="text-danger">5623</td>
+                    <td><button type="button" class="btn btn-primary p-2"data-bs-toggle="modal" data-bs-target="#add">
+                      <span class="mdi mdi-eye icon-item"></span>
+                    </button></td>
+                  </tr>
+                  <tr>
+                    <td>20-09-2021</td>
+                    <td  class="text-success">Add</td>
+                    <td class="text-success">3456</td>
+                    <td><button type="button" class="btn btn-primary p-2"data-bs-toggle="modal" data-bs-target="#add">
+                      <span class="mdi mdi-eye icon-item"></span>
+                    </button></td>
+                  </tr>
+                  <tr>
+                    <td>20-08-2021</td>
+                    <td  class="text-danger">Withdraw</td>
+                    <td  class="text-danger">6345</td>
+                    <td><button type="button" class="btn btn-info p-2" data-bs-toggle="modal" data-bs-target="#withdrawal">
+                      <span class="mdi mdi-lead-pencil icon-item"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger p-2">
+                      <span class="mdi mdi-delete icon-item"></span>
+                    </button>
+                  </td>
+                  </tr>
+                  </tbody>
+                  </table>
+                </div>
+
+          </div>
+          <div class="tab-pane fade" id="fee" role="tabpanel" aria-labelledby="fee-tab">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th><strong>Market</strong></th>
+                    <th><strong>Start Date</strong></th>
+                    <th> <strong>End Date</strong></th>
+                    <th><strong>Capital</strong></th>
+                    <th><strong>PL</strong></th>
+                    <th><strong>Fee</strong></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Tadawul</td>
+                    <td>20-10-2021</td>
+                    <td>20-01-2022</td>
+                    <td>5,13,245</td>
+                    <td  class="text-success">38,629</td>
+                    <td>100</td>
+                  </tr>
+
+                  <tr>
+                    <td>NYSE/NASDAQ</td>
+                    <td>20-10-2021</td>
+                    <td>20-01-2022</td>
+                    <td>5,13,245</td>
+                    <td  class="text-success">38,629</td>
+                    <td>100</td>
+                  </tr>
+
+                  <tr>
+                    <td>CRYPTO</td>
+                    <td>20-10-2021</td>
+                    <td>20-01-2022</td>
+                    <td>5,13,245</td>
+                    <td  class="text-success">38,629</td>
+                    <td>100</td>
+                  </tr>
+
+                  <tr class="text-white bg-black">
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td>5,13,245</td>
+                    <td  class="text-success">10,220</td>
+                    <td>1000</td>
+                  </tr>
+
+
+
+                  </tbody>
+                  </table>
+                </div>
+          </div>
+        </div>

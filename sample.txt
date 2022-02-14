@@ -1,0 +1,11 @@
+Add InvestAmt in CombinedInvestment table
+for same market ID where locked=False
+
+
+select * from investmentbreakup as inv INNER JOIN  select MarketID from investmentbreakup as invbr ON inv.MarketID = invbr.MarketID  where ClientID = 39;
+
+
+select * from investmentbreakup as inv INNER JOIN (select DISTINCT  MarketID from investmentbreakup where ClientID = 39) as invbr  ON inv.MarketID = invbr.MarketID;
+
+
+investmentbreakup
