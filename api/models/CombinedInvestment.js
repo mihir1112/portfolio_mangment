@@ -1,10 +1,6 @@
 module.exports = {
 
   attributes: {
-    InvestmentBreakup: {
-      collection: 'InvestmentBreakup',
-      via: 'CombInvesID'
-    },
     MarketID: {
       model: 'Market'
     },

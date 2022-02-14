@@ -9,6 +9,10 @@ module.exports = {
       collection: 'CombinedInvestment',
       via: 'MarketID'
     },
+    ClientDailyStatus: {
+      collection: 'ClientDailyStatus',
+      via: 'MarketID'
+    },
     Market: {
       type: 'string'
     },
