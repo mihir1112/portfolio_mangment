@@ -1,23 +1,25 @@
 <script>
 
   $('body').on("click", '#custname', function () {
-     let client_id=  $(this).next('input').attr('value');
-     client_detail(client_id)
-    })
+    $('.preview-subject').removeClass("badge badge-success");
+    $(this).addClass('badge badge-success');
+    let client_id = $(this).next('input').attr('value');
+    client_detail(client_id)
+  })
   function client_detail(client_id) {
-    var list = document.getElementById("market_info");
-    list.innerHTML = '';
-
+    $('.preview-subject').removeClass("badge badge-success");
+    var list = document.getElementById("user_info");
+         list.innerHTML = '';
+         var list_ = document.getElementById("market_list_client");
+         list_.innerHTML = '';         
     $.ajax({
       url: `/client/${client_id}`,
       type: "GET",
       cache: false,
     }).done((data) => {
-
- let market_list = data.market_list;
-console.log(market_list);
-    $("#market_info").append(`
-<div class="row mb-4">
+      let market_list = data.market_list;
+      console.log(data);
+      $("#user_info").append(`
   <div class="col-xl-3 col-sm-6 d-flex align-items-center">
     <h6 class="text-muted font-weight-normal mb-0">Name:</h6>
     <h4 class="card-title mb-0 ms-2">${data.client.Name}</h4>
@@ -31,16 +33,14 @@ console.log(market_list);
     <h4 class="card-title mb-0 ms-2">${data.client.Phone}</h4>
   </div>
   <div class="col-xl-3 col-sm-6 d-flex justify-content-end">
-  <button type="button" class="edit-btn"  data-bs-toggle="modal" data-bs-target="#addclient">
+    <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#addclient">
       <span class="mdi mdi-lead-pencil icon-item"></span>
     </button>
-  </div>
-</div>
-<div class="row" id = "market_list_client">
-  </div>`);
+    </div>
+  `);
 
-for(let i = 0; i < market_list.length;i++){
-  $("#market_list_client").append(`
+      for (let i = 0; i < market_list.length; i++) {
+        $("#market_list_client").append(`
   <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
     <div class="card bg-black">
       <div class="card-body p-10">
@@ -82,80 +82,33 @@ for(let i = 0; i < market_list.length;i++){
       </div>
     </div>
   </div>`)
-}
+      }
 
-$("#market_list_client").append(`
-<div class="row">
-  <div class="col-md-12 grid-margin stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="past-tab" data-bs-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="true">Previous Details</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="investment-tab"  data-bs-toggle="tab" href="#investment" role="tab" aria-controls="investment" aria-selected="false">Investment </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="fee-tab" data-bs-toggle="tab" href="#fee" role="tab" aria-controls="fee" aria-selected="false">Management Fee</a>
-          </li>
-        </ul>
-        <div class="tab-content" id ="client_deatail_tab">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    `);
+          $.ajax({
+            url: `/clientinv/${client_id}`,
+            type: "GET",
+            cache: false,
+          }).done((data) => {
+            var list = document.getElementById("investment_tbody");
+          list.innerHTML = '';
+          console.log(data,"jasdjbsjd");
+          for(let i =0;i<data.length;i++){
 
-  })
-  $(document).on("click", "#investment-tab", function(){
-    $("#client_deatail_tab").append(`
-      <div class="tab-pane fade" id="investment" role="tabpanel" aria-labelledby="investment-tab">
+            $("#investment_tbody").append(`
 
-<div class="table-responsive">
-  <table class="table table-bordered" id= "clientinv">
-    <thead>
-      <tr>
-        <th><strong>Date</strong></th>
-        <th><strong>Status</strong></th>
-        <th> <strong>Amount</strong></th>
-        <th><strong>Action</strong></th>
-      </tr>
-    </thead>
-    <tbody id= "clientinv_body">
-  </tbody>
-      </table>
-    </div>
+            <tr>
+              <td>${data[i].Date}</td>
+              <td  class="text-success">${data[i].AW}</td>
+              <td class="text-success">${data[i].Amount}</td>
+              <td><button type="button" value="" class="btn btn-primary p-2"data-bs-toggle="modal" data-bs-target="#add">
+                <span class="mdi mdi-eye icon-item"></span>
+              </button></td>
+            </tr>
 
-</div>
-`);
-
-    $.ajax({
-      url: `/clientinv/${client_id}`,
-      type: "GET",
-      cache: false,
-    }).done((data) => {
-      var list = document.getElementById("clientinv_body");
-    list.innerHTML = '';
-    console.log(data,"jasdjbsjd");
-    for(let i =0;i<data.length;i++){
-
-      $("#clientinv_body").append(`
-
-      <tr>
-        <td>${data[i].Date}</td>
-        <td  class="text-success">${data[i].AW}</td>
-        <td class="text-success">${data[i].Amount}</td>
-        <td><button type="button" class="btn btn-primary p-2"data-bs-toggle="modal" data-bs-target="#add">
-          <span class="mdi mdi-eye icon-item"></span>
-        </button></td>
-      </tr>
-
-`);
-    }
-    })
-});
+      `);
+      }
+      })
+    });
 
   }
 

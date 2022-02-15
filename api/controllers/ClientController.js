@@ -7,20 +7,42 @@
 
 
 module.exports = {
-  client: async function (req, res) {
-    try {
+  // client: async function (req, res) {
+  //   console.log('djjsndjsndjk')
+  //   return res.send('hbchdbc');
+  //   // try {
+  //   //   console.log('this function is called from nfjes');
+  //   //   if (req.body) {
+  //   //     let user = {
+  //   //       Name: req.body.name,
+  //   //       Email: req.body.email,
+  //   //       Phone: req.body.phone
+  //   //     }
+  //   //     console.log('create new user function is called');
+  //   //     let new_user = await Client.create(user);
+  //   //     return res.redirect('/dashboard');
+  //   //   }
+  //   // } catch (err) {
+  //   //   console.log('error in client ', err);
+  //   // } 
+  // },
+
+  addclient : async function( req ,res){
+   try {
+      console.log('this function is called from nfjes');
       if (req.body) {
         let user = {
           Name: req.body.name,
           Email: req.body.email,
           Phone: req.body.phone
         }
+        console.log('create new user function is called');
         let new_user = await Client.create(user);
         return res.redirect('/dashboard');
       }
     } catch (err) {
       console.log('error in client ', err);
-    }
+    } 
   },
   clientList: async function (req, res) {
     try {
@@ -39,9 +61,8 @@ module.exports = {
       }
       if (client) {
         let sql1 = `select *  from investmentbreakup as invbr INNER JOIN (select DISTINCT MarketID ,max(id) as id from investmentbreakup where ClientId = ${req.params.id} group by MarketID) as inv ON invbr.id = inv.id`;
-
-        let sql = `select DISTINCT MarketID as id from investmentbreakup where ClientID = ${req.params.id};`
         CombinedInvestment.query(sql1, [], async function (err, market_list) {
+          console.log(market_list);
           for (let i = 0; i < market_list.length; i++) {
             let market_name = await Market.findOne({ id: market_list[i].MarketID });
             market_list[i].Market = market_name.Market;

@@ -35,6 +35,8 @@ module.exports = {
 
   logout : async function(req,res){
     try{
+
+      console.log('sdnffdfndfndfs');
       req.session.userId ='';
        return res.redirect('/');
 

@@ -38,13 +38,20 @@ module.exports.routes = {
   'POST /login': 'AuthController.login',
   'GET /dashboard':'DashboardController.dashboard',
   'GET /logout' : 'AuthController.logout',
-  'POST /client' : 'ClientController.client',
+
+  'POST /abctest' : 'AuthController.login',
+
+  // 'POST /testmihir' : 'ClientController.client',
   'GET /client' : 'ClientController.clientList',
   'GET /client/:id' : 'ClientController.clientDetail',
+
   'GET /market' : 'MarketController.market',
   'POST /add' : 'MarketController.add',
+  'POST /client' : 'ClientController.addclient',
   'GET /cmbinv' : 'MarketController.combInv',
-  'GET /clientinv/:id' : 'ClientController.clientinv'
+  'GET /clientinv/:id' : 'ClientController.clientinv',
+  'POST /addmarket' : 'MarketController.addmarket',
+
 
 
 

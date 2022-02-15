@@ -4,7 +4,7 @@
   });
 
   $("#client_id").submit(function (e) {
-    e.preventDefault(); // avoid to execute the actual submit of the form.
+    e.preventDefault();
 
     var form = $(this);
     // var actionUrl = form.attr('action');
@@ -58,4 +58,231 @@
       }
     });
   }
+function market_info(){
+  $("#market_info").append(`
+  <div class="d-flex align-items-center justify-content-between mb-3">
+                          <h4 class="card-title mb-0">Previous Details</h4>
+                        </div>
+                        <div class="table-responsive">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th rowspan="2"><strong>Year</strong></th>
+                                <th rowspan="2"><strong>Market</strong></th>
+                                <th rowspan="2"> <strong>Mgmt Fee</strong></th>
+                                <th colspan="2" style="text-align:center"><strong>P&L</strong></th>
+                                <th colspan="2" style="text-align:center"><strong>Capital</strong></th>
+                              </tr>
+                              <tr>
+                                <th><strong>%</strong></th>
+                                <th><strong> No.</strong> </th>
+                                <th><strong>%</strong></th>
+                                <th><strong> No.</strong> </th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr>
+                                <td rowspan="4" class="badge-success text-center">2021</td>
+                                <td>Tadawul</td>
+                                <td>100</td>
+                                <td class="text-success">8</td>
+                                <td class="text-success">38,629</td>
+                                <td>45.48</td>
+                                <td>5,13,245</td>
+
+                              </tr>
+                              <tr>
+                                <td>NYSE/NASDAQ</td>
+                                <td>200</td>
+                                <td class="text-danger">-8</td>
+                                <td class="text-danger">-10,806</td>
+                                <td>43.98</td>
+                                <td>1,32,342 </td>
+                              </tr>
+                              <tr>
+                                <td>CRYPTO</td>
+                                <td>150</td>
+                                <td class="text-danger">-16</td>
+                                <td class="text-danger">-2,220</td>
+                                <td>4.68</td>
+                                <td>14,093 </td>
+                              </tr>
+
+                              <tr class="text-white bg-black">
+                                <td><strong>Total</strong></td>
+                                <td><strong>450</strong></td>
+                                <td class="text-danger"><strong>-0.90</strong></td>
+                                <td class="text-danger"><strong>-10,220</strong></td>
+                                <td><strong>100</strong></td>
+                                <td><strong>23456745</strong> </td>
+                              </tr>
+
+                              <tr>
+                                <td rowspan="4" class="badge-info  text-center">2020</td>
+                                <td>Tadawul</td>
+                                <td>234</td>
+                                <td class="text-success">8</td>
+                                <td class="text-success">38,629</td>
+                                <td>45.48</td>
+                                <td>5,13,245</td>
+
+                              </tr>
+                              <tr>
+                                <td>NYSE/NASDAQ</td>
+                                <td>234</td>
+                                <td class="text-danger">-8</td>
+                                <td class="text-danger">-10,806</td>
+                                <td>43.98</td>
+                                <td>1,32,342 </td>
+                              </tr>
+                              <tr>
+                                <td>CRYPTO</td>
+                                <td>234</td>
+                                <td class="text-danger">-16</td>
+                                <td class="text-danger">-2,220</td>
+                                <td>4.68</td>
+                                <td>14,093 </td>
+                              </tr>
+                              <tr class="text-white bg-black">
+                                <td><strong>Total</strong></td>
+                                <td><strong>450</strong></td>
+                                <td class="text-danger"><strong>-0.90</strong></td>
+                                <td class="text-danger"><strong>-10,220</strong></td>
+                                <td><strong>100</strong></td>
+                                <td><strong>23456745</strong> </td>
+                              </tr>
+
+                              <tr>
+                                <td rowspan="4" class="bg-primary text-white text-center">2019</td>
+                                <td>Tadawul</td>
+                                <td>234</td>
+                                <td class="text-success">8</td>
+                                <td class="text-success">38,629</td>
+                                <td>45.48</td>
+                                <td>5,13,245</td>
+
+                              </tr>
+                              <tr>
+                                <td>NYSE/NASDAQ</td>
+                                <td>234</td>
+                                <td class="text-danger">-8</td>
+                                <td class="text-danger">-10,806</td>
+                                <td>43.98</td>
+                                <td>1,32,342 </td>
+                              </tr>
+                              <tr>
+                                <td>CRYPTO</td>
+                                <td>234</td>
+                                <td class="text-danger">-16</td>
+                                <td class="text-danger">-2,220</td>
+                                <td>4.68</td>
+                                <td>14,093 </td>
+                              </tr>
+                              <tr class="text-white bg-black">
+                                <td><strong>Total</strong></td>
+                                <td><strong>450</strong></td>
+                                <td class="text-danger"><strong>-0.90</strong></td>
+                                <td class="text-danger"><strong>-10,220</strong></td>
+                                <td><strong>100</strong></td>
+                                <td><strong>23456745</strong> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+
+
+                        </div>
+  `);
+}
+  
+  function market_list(){
+    $.ajax({
+      url: "/cmbinv",
+      type: "GET",
+      cache: false,
+    }).done((market) => {
+      var list = document.getElementById("market_deatil");
+        list.innerHTML = '';
+      for(let i =0;i<market.length; i++){
+        $("#market_deatil").append(`
+        <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+    <div class="card bg-black">
+      <div class="card-body p-10">
+        <h5>${market[i].market}</h5>
+        <div class="dropdown-divider pt-1"></div>
+        <div class="row mt-2">
+          <div class="col-4">
+            <h6 class="text-muted font-weight-normal">Mgmt Fee</h6>
+          </div>
+          <div class="col-8">
+            <h6 class="mb-1">123</h6>
+          </div>
+        </div>
+        <div class="row mt-1 align-items-center">
+          <div class="col-4">
+            <h6 class="text-muted font-weight-normal mb-0">P&L</h6>
+          </div>
+          <div class="col-6">
+            <div class="d-flex align-items-center align-self-start">
+              <h4 class="mb-0 text-success">38,629</h4>
+              <p class="text-success ms-3 mb-0 font-weight-medium">8%</p>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="icon icon-box-info" style="cursor: pointer;"  data-bs-toggle="modal" data-bs-target="#editprofit">
+              <span class="mdi mdi-lead-pencil icon-item"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-1 align-items-center">
+          <div class="col-4">
+            <h6 class="text-muted font-weight-normal mb-0">Capital</h6>
+          </div>
+          <div class="col-8">
+            <div class="d-flex align-items-center align-self-start">
+              <h4 class="mb-0">${market[i].TotalAmount}</h4>
+              <p class=" ms-3 mb-0 font-weight-medium">45.48%</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+        `)
+      }
+
+    });
+}
+  $('body').on("click", '#all', function () {
+    console.log('skjfnsdjbfsbfsdfbdhf')  
+    var list = document.getElementById("market_info");
+    list.innerHTML = '';  
+    $("#market_info").append(`
+    <div class="alldata w-100" id="market_info">
+                          <div class="row mb-4">
+                            <div class="col-xl-2 col-sm-6 d-flex align-items-center">
+                              <h4 class="card-title mb-0 ms-2">All</h4>
+                            </div>
+                            <div class="col-xl-2 col-sm-6 d-flex align-items-center">
+                              <h6 class="text-muted font-weight-normal mb-0">Year:</h6>
+                              <h4 class="card-title mb-0 ms-2">2022</h4>
+                            </div>
+
+                            <div class="col-xl-8 col-sm-6 d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary d-flex align-items-center px-4"  data-bs-toggle="modal" data-bs-target="#addclient">
+                                <img src="/images/lock.png" width="15px"  />&nbsp; <strong>Lock</strong>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="row" id="market_deatil">
+                          </div>
+                          `);
+                          market_list();
+                          market_info();
+    })
+  
 </script>

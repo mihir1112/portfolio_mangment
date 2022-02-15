@@ -1,0 +1,46 @@
+
+  <script>
+    $(document).ready(function () {
+    client_list()
+  });  
+ 
+function client_list() {
+    $.ajax({
+      url: "/client",
+      type: "GET",
+      cache: false,
+    }).done((data) => {
+      if (data.length) {
+
+        var list = document.getElementById("client_list");
+        list.innerHTML = '';
+        $("#client_list").append(`
+        <div class="preview-item border-bottom">
+
+<div class="preview-item-content d-flex flex-grow">
+  <h6 class="preview-subject badge badge-success mb-0" id="all">All</h6>
+</div>
+</div>`);
+
+
+        for (let i = 0; i < data.length; i++) {
+          $("#client_list").append(`
+    <div class="preview-item border-bottom" id="client" >
+      <div class="preview-item-content d-flex flex-grow">
+        <div class="flex-grow">
+          <div class="d-flex d-md-block d-xl-flex justify-content-between align-items-center">
+            <h6 class="preview-subject mb-0" id="custname">${data[i].Name}</h6>
+            <input type="hidden" id="custId" name="custId" value=${data[i].id}>
+          </div>
+        </div>
+      </div>
+    </div>`);
+        }
+
+      } else {
+
+      }
+    });
+  }
+
+</script>

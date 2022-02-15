@@ -7,7 +7,34 @@
 
 const { set } = require("grunt");
 
+let moment = require('moment');
 module.exports = {
+  addmarket: async function (req, res) {
+    try {
+      console.log(req.body);
+      let new_market = {
+        Market :req.body.Market,
+        Active : req.body.Active
+      }
+      let market = await Market.create(new_market);
+      console.log(market,'new market')
+      if(market){
+        let new_combins ={
+          MarketID:market.id,
+          TotalAmount :0,
+          TotalPL:0,
+          InvestmentYear:moment().format('YYYY'),
+          Locked:0
+        }
+
+        let cobmiins =  await CombinedInvestment.create(new_combins);
+        console.log(cobmiins);
+      }
+      res.send('market');
+    } catch (err) {
+      console.log("error in market", err);
+    }
+  },
   market: async function (req, res) {
     try {
       let market = await Market.find({ select: ['id', 'Market'], where: { Active: 1 } });

@@ -52,6 +52,7 @@ set_total();
     }).done((client) => {
       var list = document.getElementById("option");
       list.innerHTML = '';
+      console.log(client);
       for (let i = 0; i < client.length; i++) {
         $("#option").append(`<option name ="${client[i].id}" value = '${client[i].id}'>${client[i].Name}</option>`)
       }

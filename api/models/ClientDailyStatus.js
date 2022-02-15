@@ -31,7 +31,7 @@ module.exports = {
     ProfitComm: {
       type: 'FLOAT'
     },
-    InvestmentComm: {
+    CapitalComm: {
       type: 'FLOAT'
     },
     YearStart: {
